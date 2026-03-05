@@ -1,0 +1,32 @@
+# =============================================================================
+# .Renviron — API credentials
+# Copy this to ~/.Renviron or place in the project root
+# NEVER commit this file to version control
+# =============================================================================
+
+# NASA FIRMS (Fire Information for Resource Management System)
+# Get your key at: https://firms.modaps.eosdis.nasa.gov/api/area/
+FIRMS_API_KEY=your_firms_api_key_here
+
+# UCDP GED
+# Docs: https://ucdp.uu.se/apidocs/
+# Required request header: x-ucdp-access-token
+UCDP_ACCESS_TOKEN=your_ucdp_access_token_here
+
+# Copernicus Data Space Ecosystem
+# Register at: https://dataspace.copernicus.eu/
+CDSE_CLIENT_ID=your_cdse_client_id
+CDSE_CLIENT_SECRET=your_cdse_client_secret
+
+# Sentinel Hub (for Processing API — image rendering)
+# Register at: https://www.sentinel-hub.com/
+SH_CLIENT_ID=your_sentinel_hub_client_id
+SH_CLIENT_SECRET=your_sentinel_hub_client_secret
+
+# X (Twitter) API v2
+# Apply at: https://developer.x.com/
+X_API_KEY=your_x_api_key
+X_API_SECRET=your_x_api_secret
+X_ACCESS_TOKEN=your_x_access_token
+X_ACCESS_SECRET=your_x_access_secret
+X_BEARER_TOKEN=your_x_bearer_token
