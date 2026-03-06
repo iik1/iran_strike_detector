@@ -35,7 +35,18 @@ run_training <- function(use_cached = TRUE) {
   
   message("\n▶ Step 0a: Building training data...")
   source("00a_build_training_data.R", local = TRUE)
-  training_data <- build_training_data(use_cached = use_cached)
+  
+  # Auto-detect whether spectral extraction is possible
+  has_sh <- nzchar(Sys.getenv("SH_CLIENT_ID")) && nzchar(Sys.getenv("SH_CLIENT_SECRET"))
+  if (!has_sh) {
+    message("  Sentinel Hub credentials not found; skipping spectral extraction.")
+    message("  Model will use contextual features only (reduced accuracy).")
+  }
+  
+  training_data <- build_training_data(
+    use_cached       = use_cached,
+    extract_spectral = has_sh
+  )
   
   message("\n▶ Step 0b: Training classifier...")
   source("00b_train_model.R", local = TRUE)

@@ -47,6 +47,17 @@ prepare_data <- function(training_data) {
     mutate(label = factor(label, levels = c(0, 1),
                           labels = c("non_strike", "strike")))
   
+  # Warn if running without spectral features
+  n_numeric <- df %>% select(where(is.numeric)) %>% ncol()
+  if (n_numeric < 10) {
+    warning(
+      glue("Only {n_numeric} numeric features found. ",
+           "Did you run with extract_spectral = FALSE? ",
+           "Model performance will be limited without spectral features."),
+      call. = FALSE
+    )
+  }
+  
   # ── Handle missing values ──
   # Drop columns with >50% missing
   missing_pct <- colMeans(is.na(df))

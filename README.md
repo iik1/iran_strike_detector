@@ -47,6 +47,11 @@
 # 1. Fill in API credentials
 cp .Renviron.template .Renviron
 # Edit .Renviron with your keys
+# At minimum you need FIRMS_API_KEY and UCDP_ACCESS_TOKEN.
+# If UCDP token is unavailable, download the GED CSV from
+# https://ucdp.uu.se/downloads/ and place at data/GEDEvent_v25_1.csv
+# Sentinel Hub credentials are optional — the pipeline auto-detects
+# and skips spectral extraction if they're missing.
 
 # 2. Install R packages
 Rscript -e "install.packages(c('httr2','tidyverse','sf','terra','ranger',
@@ -54,7 +59,7 @@ Rscript -e "install.packages(c('httr2','tidyverse','sf','terra','ranger',
   'magick','showtext','glue','DT','patchwork','rnaturalearth',
   'rnaturalearthdata','geosphere','base64enc'))"
 
-# 3. Train the model (one-time, ~2-4 hours depending on sample size)
+# 3. Train the model (one-time, ~2-4 hours with spectral; minutes without)
 Rscript run_pipeline.R train
 
 # 4. Run detection

@@ -11,6 +11,8 @@ FIRMS_API_KEY=your_firms_api_key_here
 # UCDP GED
 # Docs: https://ucdp.uu.se/apidocs/
 # Required request header: x-ucdp-access-token
+# If token is unavailable, download the CSV from https://ucdp.uu.se/downloads/
+# and place it at data/GEDEvent_v25_1.csv (the script will auto-fallback).
 UCDP_ACCESS_TOKEN=your_ucdp_access_token_here
 
 # Copernicus Data Space Ecosystem

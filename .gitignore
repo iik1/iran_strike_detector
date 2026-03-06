@@ -1,2 +1,19 @@
+# Credentials -- NEVER commit
 .Renviron
+.Rprofile
 
+# Data files (large, user-specific)
+data/
+imagery/
+output/
+models/
+logs/
+
+# R artifacts
+.Rhistory
+.RData
+*.Rproj.user
+
+# OS
+.DS_Store
+Thumbs.db
